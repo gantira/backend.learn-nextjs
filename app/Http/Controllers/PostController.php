@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user')->limit(10)->get();
+        $posts = Post::with('user')->paginate(10);
 
         return PostResource::collection($posts);
     }
